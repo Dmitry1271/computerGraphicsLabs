@@ -63,7 +63,7 @@ public class Polygon {
         this.massY = massY;
     }
 
-    public int getSize(){
+    public int getSize() {
         return points.length;
     }
 
@@ -87,6 +87,14 @@ public class Polygon {
             lines[i] = getLine(i + 1);
         }
         return lines;
+    }
+
+    public double perimeter() {
+        int perimeter = 0;
+        for (Line line : getLines()) {
+            perimeter += line.getLineLength();
+        }
+        return perimeter;
     }
 
     @Override

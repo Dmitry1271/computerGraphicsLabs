@@ -2,6 +2,7 @@ package by.dudko.lab6.quickhull.graphicaction;
 
 import by.dudko.lab6.quickhull.action.AlgorithmAction;
 import by.dudko.lab6.quickhull.algorithm.QuickHullAlgorithm;
+import by.dudko.lab6.quickhull.movement.Move;
 import by.dudko.tools.constants.Constants;
 import by.dudko.tools.entity.Line;
 import by.dudko.tools.entity.MovingPoint;
@@ -15,15 +16,15 @@ import java.awt.*;
 /**
  * Created by cplus on 18.05.2017.
  */
-public class ScreenQuickhull extends JPanel{
+public class ScreenQuickhull extends JPanel {
     private MovingPoint[] points;
-    private int speed;
+    private MovingPoint[] coverPoints;
     private QuickHullAlgorithm quickHullAlgorithm;
+    private Move move;
 
-    public ScreenQuickhull(MovingPoint[] points, int speed){
+    public ScreenQuickhull(MovingPoint[] points, int speed, int perimeter) {
         this.points = points;
-        this.speed = speed;
-        quickHullAlgorithm = new QuickHullAlgorithm(this.points);
+        move = new Move(this.points,speed,perimeter);
     }
 
     public void drawingPanel() {
@@ -37,8 +38,19 @@ public class ScreenQuickhull extends JPanel{
     }
 
     @Override
-    protected void paintComponent(Graphics graph){
-        PointAction.drowPoints(points,graph);
-        PolygonAction.drowPolygon(quickHullAlgorithm.quickHull(),graph);
+    protected void paintComponent(Graphics graph) {
+        try {
+            quickHullAlgorithm = new QuickHullAlgorithm(this.points);
+            coverPoints = quickHullAlgorithm.quickHull();
+            super.paintComponent(graph);
+            Thread.sleep(15);
+            move.startMove(coverPoints);
+            repaint();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        PointAction.drowPoints(points, graph);
+        PolygonAction.drowPolygon(coverPoints, graph);
     }
+
 }

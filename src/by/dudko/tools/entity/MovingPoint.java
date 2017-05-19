@@ -2,6 +2,10 @@ package by.dudko.tools.entity;
 
 import java.util.Random;
 
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
+import static java.lang.Math.toRadians;
+
 /**
  * Created by cplus on 18.05.2017.
  */
@@ -9,12 +13,17 @@ public class MovingPoint extends Point {
     private Vector direction;
 
     public MovingPoint() {
-        direction = new Vector(Math.cos(Math.toRadians(generateAngle())),Math.sin(Math.toRadians(generateAngle())));
+        direction = new Vector(cos(toRadians(generateAngle())), sin(toRadians(generateAngle())));
+    }
+
+    public MovingPoint(double x, double y, Vector direction) {
+        super(x, y);
+        this.direction = direction;
     }
 
     public MovingPoint(double x, double y) {
         super(x, y);
-        direction = new Vector(Math.cos(Math.toRadians(generateAngle())),Math.sin(Math.toRadians(generateAngle())));
+        direction = new Vector(cos(toRadians(generateAngle())),sin(toRadians(generateAngle())));
     }
 
     public Vector getDirection() {

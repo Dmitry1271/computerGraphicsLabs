@@ -1,11 +1,15 @@
 package by.dudko.tools.entity;
 
+import static java.lang.Math.pow;
+import static java.lang.Math.sqrt;
+
 /**
  * Created by cplus on 14.05.2017.
  */
 public class Line {
     private Point p1;
     private Point p2;
+    private double lineLength;
 
     public Line() {
     }
@@ -13,6 +17,13 @@ public class Line {
     public Line(Point p1, Point p2) {
         this.p1 = p1;
         this.p2 = p2;
+        setLineLength();
+    }
+
+    public Line(Point p1, Point p2, double lineLength) {
+        this.p1 = p1;
+        this.p2 = p2;
+        this.lineLength = lineLength;
     }
 
     public Point getP1() {
@@ -29,6 +40,14 @@ public class Line {
 
     public void setP2(Point p2) {
         this.p2 = p2;
+    }
+
+    private void setLineLength() {
+        lineLength = sqrt(pow(p1.getX() - p2.getX(), 2) + pow(p1.getY() - p2.getY(), 2));
+    }
+
+    public double getLineLength() {
+        return lineLength;
     }
 
     @Override
