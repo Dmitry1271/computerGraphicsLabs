@@ -1,4 +1,4 @@
-package tools.entity;
+package by.dudko.tools.entity;
 
 import java.util.Arrays;
 
@@ -61,6 +61,10 @@ public class Polygon {
 
     public void setMassY(double[] massY) {
         this.massY = massY;
+    }
+
+    public int getSize(){
+        return points.length;
     }
 
     private void givePointsMemory(int size) {

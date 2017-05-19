@@ -1,4 +1,4 @@
-package tools.entity;
+package by.dudko.tools.entity;
 
 /**
  * Created by cplus on 14.05.2017.
