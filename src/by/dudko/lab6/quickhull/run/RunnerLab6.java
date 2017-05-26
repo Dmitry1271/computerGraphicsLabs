@@ -1,15 +1,9 @@
 package by.dudko.lab6.quickhull.run;
 
-import by.dudko.lab6.quickhull.action.AlgorithmAction;
 import by.dudko.lab6.quickhull.algorithm.QuickHullAlgorithm;
-import by.dudko.lab6.quickhull.graphicaction.ScreenQuickhull;
-import by.dudko.tools.entity.Line;
+import by.dudko.lab6.quickhull.graphicaction.ScreenQuickHull;
 import by.dudko.tools.entity.MovingPoint;
-import by.dudko.tools.entity.Point;
 import by.dudko.tools.entity.Polygon;
-import by.dudko.tools.someaction.AddToListAfterObject;
-
-import java.util.LinkedList;
 
 /**
  * Created by cplus on 18.05.2017.
@@ -32,7 +26,7 @@ public class RunnerLab6 {
                 index = 0;
             }
         }
-        ScreenQuickhull draw = new ScreenQuickhull(points, speed, perimeter);
+        ScreenQuickHull draw = new ScreenQuickHull(points, speed, perimeter);
         draw.drawingPanel();
     }
 }

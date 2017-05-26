@@ -12,11 +12,11 @@ import java.awt.*;
 public class PolygonAction {
 
     public static void drowPolygon(Polygon polygon, Graphics graph){
-        graph.drawPolygon(TransformDoubleToInt.toIntMassNumbers(polygon.getMassX()),TransformDoubleToInt.toIntMassNumbers(polygon.getMassY()),polygon.getSize());
+        graph.drawPolygon(TransformDoubleToInt.getTransformed(polygon.getMassX()),TransformDoubleToInt.getTransformed(polygon.getMassY()),polygon.getSize());
     }
 
     public static void drowPolygon(Point[] points,Graphics graph){
         Polygon polygon = new Polygon(points);
-        graph.drawPolygon(TransformDoubleToInt.toIntMassNumbers(polygon.getMassX()),TransformDoubleToInt.toIntMassNumbers(polygon.getMassY()),polygon.getSize());
+        graph.drawPolygon(TransformDoubleToInt.getTransformed(polygon.getMassX()),TransformDoubleToInt.getTransformed(polygon.getMassY()),polygon.getSize());
     }
 }

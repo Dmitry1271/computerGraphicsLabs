@@ -1,12 +1,9 @@
 package by.dudko.lab6.quickhull.graphicaction;
 
-import by.dudko.lab6.quickhull.action.AlgorithmAction;
 import by.dudko.lab6.quickhull.algorithm.QuickHullAlgorithm;
-import by.dudko.lab6.quickhull.movement.Move;
+import by.dudko.lab6.quickhull.movement.QuickHullMove;
 import by.dudko.tools.constants.Constants;
-import by.dudko.tools.entity.Line;
 import by.dudko.tools.entity.MovingPoint;
-import by.dudko.tools.entityaction.LineAction;
 import by.dudko.tools.entityaction.PointAction;
 import by.dudko.tools.entityaction.PolygonAction;
 
@@ -16,15 +13,15 @@ import java.awt.*;
 /**
  * Created by cplus on 18.05.2017.
  */
-public class ScreenQuickhull extends JPanel {
+public class ScreenQuickHull extends JPanel {
     private MovingPoint[] points;
     private MovingPoint[] coverPoints;
     private QuickHullAlgorithm quickHullAlgorithm;
-    private Move move;
+    private QuickHullMove move;
 
-    public ScreenQuickhull(MovingPoint[] points, int speed, int perimeter) {
+    public ScreenQuickHull(MovingPoint[] points, int speed, int perimeter) {
         this.points = points;
-        move = new Move(this.points,speed,perimeter);
+        move = new QuickHullMove(this.points,speed,perimeter);
     }
 
     public void drawingPanel() {
